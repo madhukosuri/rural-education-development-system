@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  strength: MyString
+  boys: MyString
+  girls: MyString
+  location: MyString
+  established_year: MyString
+
+two:
+  strength: MyString
+  boys: MyString
+  girls: MyString
+  location: MyString
+  established_year: MyString

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: MyString
+  boys: 1
+  girls: 1
+  school: one
+
+two:
+  year: MyString
+  boys: 1
+  girls: 1
+  school: two
