@@ -8,36 +8,34 @@ module Api
 			end
 
 			def index
-			 render json: school.events.all
-
-			end
-					 
-			def create
-	          respond_to do |format|
-	              event = Event.find(params[:school_id])
-	              if event.save
-	                 format.json {render json: 'created successfully'}
-	              else
-	                 format.json { render json: @event.errors.messages, status: :unprocessable_entity }
-	              end
-	          end  
+		        @events = Event.all
+		        render json: @events
             end
 
+			def create
+				@school = School.find(params[:school_id])
+			    @event = @school.events.create(event_params)
+			    
+			    if @event
+				   render json: @event
+		 	    else
+				   render json: @event.errors.messages, status: :unprocessable_entity
+				end
+			end
+
 			def update
-				respond_to do |format|
-					if @event.update_attributes(event_params)
-						format.json { head :ok }
-					else
-						format.json { render json: @event.errors, status: :unprocessable_entity }
-					end
+				if @event.update_attributes(event_params)
+					render json: "updated"
+				else
+				   render json:@school_staff.errors.messages, status: :unprocessable_entity
 				end
 			end
 
 			def destroy
 				@event.destroy
-					if @event.destroyed?
-						render json: 'destroy successfully'
-					end
+				if @event.destroyed?
+					render json: 'destroy successfully'
+				end
 			end
 
 
@@ -60,3 +58,20 @@ module Api
 		end
 	end
 end
+
+
+
+
+
+
+
+
+   #          def update
+			# 	respond_to do |format|
+			# 		if @event.update_attributes(event_params)
+			# 			format.json { head :ok }
+			# 		else
+			# 			format.json { render json: @event.errors, status: :unprocessable_entity }
+			# 		end
+			# 	end
+			# end

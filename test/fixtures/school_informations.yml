@@ -7,9 +7,9 @@ one:
   location: MyString
   established_year: MyString
 
-two:
-  strength: MyString
-  boys: MyString
-  girls: MyString
-  location: MyString
-  established_year: MyString
+# two:
+#   strength: MyString
+#   boys: MyString
+#   girls: MyString
+#   location: MyString
+#   established_year: MyString

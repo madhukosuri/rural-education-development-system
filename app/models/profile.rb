@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
+  validates :gender, presence: true
 end
 
 

@@ -2,6 +2,7 @@ class School < ApplicationRecord
     has_many :school_staffs
     has_many :admissions, dependent: :destroy
     has_many :events
+     
     validates :name, :code, presence: true
    
 
@@ -20,6 +21,7 @@ class School < ApplicationRecord
 	  #   puts "You have touched an object"
 	  # end
 
-
-
+	# def school_info
+	# 	return 'lllll'
+	# end
 end

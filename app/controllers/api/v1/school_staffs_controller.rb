@@ -8,36 +8,33 @@ module Api
 			end
 
 			def index
-			 render json: school.school_staff.all
-
-			end
+		        @school_staffs = SchoolStaff.all
+                render json: @school_staffs
+            end
 					 
 			def create
-	          respond_to do |format|
-	              school_staff = SchoolStaff.find(params[:school_id])
-	              if school_staff.save
-	                 format.json {render json: 'created successfully'}
-	              else
-	                 format.json { render json: @school_staff.errors.messages, status: :unprocessable_entity }
-	              end
-	          end  
-            end
+				@school = School.find(params[:school_id])
+			    @school_staff = @school.school_staffs.create(school_staff_params)
+			    if @school_staff
+				   render json: @school_staff
+		 	    else
+				   render json:@school_staff.errors.messages, status: :unprocessable_entity
+				end
+		    end
 
 			def update
-				respond_to do |format|
-					if @school_staff.update_attributes(school_staff_params)
-						format.json { head :ok }
-					else
-						format.json { render json: @school_staff.errors, status: :unprocessable_entity }
-					end
+				if @school_staff.update_attributes(school_staff_params)
+					render json: "updated"
+				else
+					render json:@school_staff.errors.messages, status: :unprocessable_entity
 				end
 			end
 
 			def destroy
 				@school_staff.destroy
-					if @school_staff.destroyed?
-						render json: 'destroy successfully'
-					end
+				if @school_staff.destroyed?
+				   render json: 'destroy successfully'
+				end
 			end
 
 

@@ -3,7 +3,9 @@ module Api
   module V1
     class SchoolInformationsController < ApplicationController
 
-      
+      # def to_json 
+      #   {:id => @id, :name => @name, :code => @code}.to_json
+      # end
 
 
       before_action :set_school_information, only: [:show, :destroy, :update]
@@ -25,7 +27,7 @@ module Api
           respond_to do |format|
               school = School.find(params[:school_id])
               school_information = school.build_school_information(school_information_params)
-              if school_information.save
+              if school_information.save!
                  format.json {render json: 'created successfully'}
               else
                  format.json { render json: @school_information.errors.messages, status: :unprocessable_entity }

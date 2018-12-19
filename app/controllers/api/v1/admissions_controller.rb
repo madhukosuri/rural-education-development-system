@@ -8,36 +8,34 @@ module Api
 			end
 
 			def index
-			 render json: admissions.all
-
+		        @admissions = Admission.all
+		        render json: @admissions
 			end
 					 
 			def create
-	          respond_to do |format|
-	              admission = Admission.find(params[:school_id])
-	              if admission.save
-	                 format.json {render json: 'created successfully'}
-	              else
-	                 format.json { render json: @admission.errors.messages, status: :unprocessable_entity }
-	              end
-	          end  
-            end
-
-			def update
-				respond_to do |format|
-					if @admission.update_attributes(admission_params)
-						format.json { head :ok }
-					else
-						format.json { render json: @admission.errors, status: :unprocessable_entity }
-					end
+				@school = School.find(params[:school_id])
+			    @admission = @school.admissions.create(admission_params)
+			    
+			    if @admission
+				   render json: @admission
+		 	    else
+				   render json: @admission.errors, status: :unprocessable_entity
 				end
+		    end
+			
+			def update
+			    if @admission.update_attributes(admission_params)
+					render json: "updated"
+				else
+					render json:@admission.errors.messages, status: :unprocessable_entity
+                end
 			end
 
 			def destroy
 				@admission.destroy
-					if @admission.destroyed?
-						render json: 'destroy successfully'
-					end
+				if @admission.destroyed?
+					render json: 'destroy successfully'
+				end
 			end
 
 
@@ -56,7 +54,19 @@ module Api
 			end
 
 
-
 		end
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+# https://blog.bigbinary.com/2016/04/19/changes-to-test-controllers-in-rails-5.html

@@ -9,9 +9,8 @@ module Api
       end
 
       def show
-		    # @user = User.find(params[:id])
-		    render json: @user
-      end
+				render json: @user
+	    end
 
       def create
 		    @user = User.new(user_params)
@@ -36,12 +35,10 @@ module Api
       def destroy
 				@user.destroy
 					if @user.destroyed?
-						render json: 'destroy successfully', 
-			    # else
-			    # 	render json: @user.errors, status: :unprocessable_entity
-			    end
+						render json: 'destroy successfully'
+					end
 			end
-
+      
       private
 
       def user_params

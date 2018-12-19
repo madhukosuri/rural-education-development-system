@@ -1,9 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  code: MyString
-
-two:
-  name: MyString
-  code: MyString
+  name: zhhs
+  code: abcde
+# two:
+#   name: bhasyam
+#   code: de3323
+# three:
+#   name: stjones
+#   code: 4387yr
+# four:
+#   name: littlestar
+#   code: hewbcv

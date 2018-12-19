@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: dance
   date_of_event: 2018-11-19
   plans: 
   school: one
-
+# 
 two:
-  name: MyString
+  name: running
   date_of_event: 2018-11-19
   plans: 
-  school: two
+  school: one

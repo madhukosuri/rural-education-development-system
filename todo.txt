@@ -1,0 +1,51 @@
+                     Prefix Verb   URI Pattern                                                                              Controller#Action
+           new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
+               user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
+       destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
+          new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
+         edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
+              user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+                            PUT    /users/password(.:format)                                                                devise/passwords#update
+                            POST   /users/password(.:format)                                                                devise/passwords#create
+   cancel_user_registration GET    /users/cancel(.:format)                                                                  devise/registrations#cancel
+      new_user_registration GET    /users/sign_up(.:format)                                                                 devise/registrations#new
+     edit_user_registration GET    /users/edit(.:format)                                                                    devise/registrations#edit
+          user_registration PATCH  /users(.:format)                                                                         devise/registrations#update
+                            PUT    /users(.:format)                                                                         devise/registrations#update
+                            DELETE /users(.:format)                                                                         devise/registrations#destroy
+                            POST   /users(.:format)                                                                         devise/registrations#create
+api_v1_school_school_staffs GET    /api/v1/schools/:school_id/school_staffs(.:format)                                       api/v1/school_staffs#index
+                            POST   /api/v1/schools/:school_id/school_staffs(.:format)                                       api/v1/school_staffs#create
+ api_v1_school_school_staff GET    /api/v1/schools/:school_id/school_staffs/:id(.:format)                                   api/v1/school_staffs#show
+                            PATCH  /api/v1/schools/:school_id/school_staffs/:id(.:format)                                   api/v1/school_staffs#update
+                            PUT    /api/v1/schools/:school_id/school_staffs/:id(.:format)                                   api/v1/school_staffs#update
+                            DELETE /api/v1/schools/:school_id/school_staffs/:id(.:format)                                   api/v1/school_staffs#destroy
+   api_v1_school_admissions GET    /api/v1/schools/:school_id/admissions(.:format)                                          api/v1/admissions#index
+                            POST   /api/v1/schools/:school_id/admissions(.:format)                                          api/v1/admissions#create
+    api_v1_school_admission GET    /api/v1/schools/:school_id/admissions/:id(.:format)                                      api/v1/admissions#show
+                            PATCH  /api/v1/schools/:school_id/admissions/:id(.:format)                                      api/v1/admissions#update
+                            PUT    /api/v1/schools/:school_id/admissions/:id(.:format)                                      api/v1/admissions#update
+                            DELETE /api/v1/schools/:school_id/admissions/:id(.:format)                                      api/v1/admissions#destroy
+       api_v1_school_events GET    /api/v1/schools/:school_id/events(.:format)                                              api/v1/events#index
+                            POST   /api/v1/schools/:school_id/events(.:format)                                              api/v1/events#create
+        api_v1_school_event GET    /api/v1/schools/:school_id/events/:id(.:format)                                          api/v1/events#show
+                            PATCH  /api/v1/schools/:school_id/events/:id(.:format)                                          api/v1/events#update
+                            PUT    /api/v1/schools/:school_id/events/:id(.:format)                                          api/v1/events#update
+                            DELETE /api/v1/schools/:school_id/events/:id(.:format)                                          api/v1/events#destroy
+             api_v1_schools GET    /api/v1/schools(.:format)                                                                api/v1/schools#index
+                            POST   /api/v1/schools(.:format)                                                                api/v1/schools#create
+              api_v1_school GET    /api/v1/schools/:id(.:format)                                                            api/v1/schools#show
+                            PATCH  /api/v1/schools/:id(.:format)                                                            api/v1/schools#update
+                            PUT    /api/v1/schools/:id(.:format)                                                            api/v1/schools#update
+                            DELETE /api/v1/schools/:id(.:format)                                                            api/v1/schools#destroy
+               api_v1_users GET    /api/v1/users(.:format)                                                                  api/v1/users#index
+                            POST   /api/v1/users(.:format)                                                                  api/v1/users#create
+                api_v1_user GET    /api/v1/users/:id(.:format)                                                              api/v1/users#show
+                            PATCH  /api/v1/users/:id(.:format)                                                              api/v1/users#update
+                            PUT    /api/v1/users/:id(.:format)                                                              api/v1/users#update
+                            DELETE /api/v1/users/:id(.:format)                                                              api/v1/users#destroy
+         rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+  rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+         rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+  update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+       rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
