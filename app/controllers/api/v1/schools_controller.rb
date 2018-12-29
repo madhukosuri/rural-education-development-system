@@ -3,9 +3,8 @@ module Api
     class SchoolsController < ApplicationController
       before_action :set_school, only: [:show, :destroy, :update]
       before_action :authenticate_user!
-   #       
-       def show
-        puts @current_user.inspect
+
+      def show
         render json: @school
       end
 
@@ -16,7 +15,6 @@ module Api
 
       def create
         @school = School.new(school_params)
-
         if @school.save
           render json: @school
         else
@@ -30,14 +28,12 @@ module Api
         else
           render json:@school.errors.messages, status: :unprocessable_entity
         end
-
       end
 
       def destroy
-        puts @school.inspect
         @school.destroy
         if @school.destroyed?
-          render json: 'destroy successfully'
+          render json: 'school destroyed successfully'
         end
       end
 

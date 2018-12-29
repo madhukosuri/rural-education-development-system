@@ -48,7 +48,6 @@ gem 'carrierwave-video'
 gem 'carrierwave-video-thumbnailer'
 gem 'devise'
 gem "rolify"
-gem 'authority'
 gem 'jwt'
 gem 'bcrypt', '~> 3.1.7'
 gem 'simple_command'
