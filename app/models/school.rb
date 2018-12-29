@@ -1,27 +1,8 @@
 class School < ApplicationRecord
-    has_many :school_staffs
+    has_many :school_staffs, dependent: :destroy
     has_many :admissions, dependent: :destroy
-    has_many :events
-     
+    has_many :events, dependent: :destroy
     validates :name, :code, presence: true
-   
-
-    # validates :name, :code, uniqueness: true
-
-
-	  # after_initialize do |school|
-	  #   puts "You have initialized an object!"
-	  # end
-	 
-	  # after_find do |school|
-	  #   puts "You have found an object!"
-	  # end
-
-	  # after_touch do |user|
-	  #   puts "You have touched an object"
-	  # end
-
-	# def school_info
-	# 	return 'lllll'
-	# end
+    mount_uploaders :school_images, SchoolImageUploader
+    mount_uploader :video, VideoUploader
 end
