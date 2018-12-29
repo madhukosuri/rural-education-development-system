@@ -43,7 +43,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-video'
+gem 'carrierwave-video-thumbnailer'
 gem 'devise'
+gem "rolify"
 gem 'jwt'
 gem 'bcrypt', '~> 3.1.7'
 gem 'simple_command'
