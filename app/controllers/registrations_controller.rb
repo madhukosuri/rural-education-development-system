@@ -5,14 +5,14 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-  	build_resource(sign_up_params)
+    build_resource(sign_up_params)
 
     resource.save
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
         sign_up(resource_name, resource)
-      	token = TokenIssuer.new(params[:user][:email]).call
+        token = TokenIssuer.new(params[:user][:email]).call
         render json: {"token": token}
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
@@ -25,12 +25,6 @@ class RegistrationsController < Devise::RegistrationsController
       respond_with resource
     end
   end
-
-  def update
-    super
-  end
-
-
   def sign_up_params
     devise_parameter_sanitizer.sanitize(:sign_up)
   end

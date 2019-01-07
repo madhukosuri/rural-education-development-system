@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 	        resources :schools, :defaults => { :format => 'json' } do
 	        	resources :school_staffs
 	          	resources :admissions
-	         	 resources :events
+	         	resources :events
 	        end
 	        resources :users
 	    end
